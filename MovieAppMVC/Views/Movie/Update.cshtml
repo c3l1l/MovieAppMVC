@@ -1,0 +1,19 @@
+﻿@model Movie
+@{
+}
+
+<table>
+    @using (Html.BeginForm("Update", "Movie", FormMethod.Post))
+    {
+        <tr><td>@Html.DisplayNameFor(m=>m.Id)</td><td>@Html.TextBoxFor(m=>m.Id,new {@disabled=""})</td> </tr>
+        <tr><td>@Html.DisplayNameFor(m=>m.MovieName)</td><td>@Html.TextBoxFor(m=>m.MovieName)</td> </tr>
+        <tr><td>@Html.DisplayNameFor(m=>m.CategoryId)</td><td> <select asp-for="CategoryId" asp-items="ViewBag.Categories"></select></td></tr>
+        <tr><td>@Html.DisplayNameFor(m=>m.Duration)</td><td>@Html.TextBoxFor(m=>m.Duration)</td></tr>
+        <tr><td>@Html.DisplayNameFor(m=>m.Director)</td><td>@Html.TextBoxFor(m=>m.Director)</td></tr>
+        <tr><td>@Html.DisplayNameFor(m=>m.ReleasedYear)</td><td>  <input type="number" min=1900 max=@DateTime.Now.Year value=@Model.ReleasedYear name="ReleasedYear" /></td></tr>
+        @* <tr><td>@Html.DisplayNameFor(m=>m.DateReleased)</td><td> @Html.EditorFor(m=>m.DateReleased)</td></tr> *@
+
+
+        <tr><td><input type="submit" value="Gonder"></td></tr>
+    }
+</table>

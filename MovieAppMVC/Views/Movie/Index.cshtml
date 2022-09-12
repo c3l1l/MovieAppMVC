@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Movie>
+@{
+}
+
+@Html.ActionLink("Add New","Add","Movie")
+<table border="1px">
+    <thead>
+        <th>@Html.DisplayNameFor(m=>m.Id)</th>
+        <th>@Html.DisplayNameFor(m=>m.MovieName)</th>
+         <th>@Html.DisplayNameFor(m=>m.Duration) </th>
+        <th>@Html.DisplayNameFor(m=>m.Director)</th>       
+         <th>@Html.DisplayNameFor(m=>m.Category)</th>
+         <th>@Html.DisplayNameFor(m=>m.ReleasedYear)</th>
+    </thead>
+    @foreach (var movie in Model)
+    {
+        <tr >
+            <td>@movie.Id </td>
+            <td>@movie.MovieName </td>
+            <td>@movie.Duration mins</td>
+            <td>@movie.Director </td>
+            <td>@movie.Category.CategoryName </td>
+            <td>@movie.ReleasedYear</td>
+            <td>@Html.ActionLink("Edit","Update","Movie",new {movie.Id})</td>
+            <td>@Html.ActionLink("Delete","Delete","Movie",new {movie.Id})</td>
+            @*<td><a asp-action="Edit" asp-controller="Movie" asp-route-id="@movie.Id">Edit Button</a></td>*@
+        </tr>
+    }
+    
+</table>
